@@ -1,0 +1,35 @@
+Environment:
+TOLERANCE = 1e-2
+MAX_STEPS = 128
+
+N_ENVS = 40   # vectorized environment
+
+n_steps = 128
+batch_size=64
+learning_rate=0.0001
+seed=0
+
+POLICY:
+'MlpPolicy'
+policy_kwargs = dict(net_arch=dict(pi=[128, 128], vf=[128, 128]), activation_fn=nn.SELU)
+
+
+model data:
+    "n_envs": 40,
+    "n_steps": 128,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "ent_coef": 0.0,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "batch_size": 64,
+    "n_epochs": 10,
+
+    "seed": 0,
+    "action_noise": null,
+    "start_time": 1690814714706567181,
+    "learning_rate": 0.0001,
+
+
+
+

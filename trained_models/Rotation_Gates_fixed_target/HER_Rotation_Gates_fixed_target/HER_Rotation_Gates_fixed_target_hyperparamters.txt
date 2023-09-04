@@ -1,0 +1,23 @@
+Environment:
+TOLERANCE = 1e-3
+MAX_STEPS = 128
+
+    
+learning_rate: 5e-05,
+seed: 0,
+
+
+HER paramters:
+n_sampled_goals = 4
+goal_selection_strategy = 'future'
+
+POLICY:
+"MultiInputPolicy"
+
+
+
+gates = [RXGate(np.pi/128), RXGate(-np.pi/128),
+         RYGate(np.pi/128), RYGate(-np.pi/128),
+         RZGate(np.pi/128), RZGate(-np.pi/128)]
+
+U = [[0.76749896-0.43959894j, -0.09607122+0.45658344j],[0.09607122+0.45658344j, 0.76749896+0.43959894j]]
