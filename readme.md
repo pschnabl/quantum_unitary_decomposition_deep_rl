@@ -27,6 +27,6 @@ During the training models of the trained agents policies can be stored and load
 ### Evaluation
 The "evaluate*.py" scripts can be used to load a trained agent and evaluate the performance. The scripts contain three kinds of visualization:
 * Circuit visualization: The generated quantum circuit is visualized using Qiskit.
-        ![Circuit visualization](./imgs/circuit_visualization.mp4)
+![Circuit visualization](./imgs/circuit_visualization.gif)
 * Bloch sphere animation: The evolution of the quantum state on the Bloch sphere is visualized.
 * Bloch sphere trajectory: The trajectory of the quantum state on the Bloch sphere is visualized.
