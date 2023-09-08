@@ -14,3 +14,19 @@ The implementation is executed in Python and relies on the following key librari
 * [Gymnasium](https://gymnasium.farama.org/) - Utilized for constructing customized reinforcement learning environments that encapsulate the unitary matrix decomposition problem.
 * [Stable-Baselines3](https://stable-baselines3.readthedocs.io/en/master/) - Employed for training the reinforcement learning agents. This library provides implementations for the PPO and DQN/DQN+HER algorithms.
 * [Qiskit](https://qiskit.org/) - Leveraged for simulating the quantum circuits that the agents are designed to generate.
+
+
+## Usage
+### Training
+Agents can be trained using the "train*.py" scripts and the corresponding costum Gymnasium environments in the envs folder. The training progress of the agent can be visualized using Tensorboard. The following command can be used to launch Tensorboard:
+
+```bash tensorboard --logdir ./logs/```
+
+During the training models of the trained agents policies can be stored and loaded later on for evaluation.
+
+### Evaluation
+The "evaluate*.py" scripts can be used to load a trained agent and evaluate the performance. The scripts contain three kinds of visualization:
+    * Circuit visualization: The generated quantum circuit is visualized using Qiskit.
+        ![Circuit visualization](./imgs/circuit_visualization.gif)
+    * Bloch sphere animation: The evolution of the quantum state on the Bloch sphere is visualized.
+    * Bloch sphere trajectory: The trajectory of the quantum state on the Bloch sphere is visualized.
