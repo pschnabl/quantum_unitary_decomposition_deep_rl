@@ -7,7 +7,7 @@ import gymnasium as gym
 import numpy as np
 import pandas as pd
 
-from HER_env import HEREnv
+from envs.HER_env_fixed_target import HEREnvFixedTarget
 from qiskit.circuit.library.standard_gates import RZGate, RXGate, RYGate, SXGate, XGate
 
 from stable_baselines3 import DQN, HerReplayBuffer
@@ -119,7 +119,7 @@ def optimize_agent(trial):
     U = [[0.76749896-0.43959894j, -0.09607122+0.45658344j],[0.09607122+0.45658344j, 0.76749896+0.43959894j]]
 
     # define the environment
-    env = HEREnv(U, GATES, NUM_QUBITS, tolerance=TOLERANCE, max_steps=MAX_STEPS)
+    env = HEREnvFixedTarget(U, GATES, NUM_QUBITS, tolerance=TOLERANCE, max_steps=MAX_STEPS)
 
     # define the directory where the models and logs are saved
     models_dir = 'hyperparameter_study_models/' + "trial{}".format(trial.number) # trial.number is the id of the current optuna trial
@@ -137,7 +137,7 @@ def optimize_agent(trial):
     )
 
     # create a separate evaluation env in order to save the best model
-    eval_env = HEREnv(U, GATES, NUM_QUBITS, tolerance=TOLERANCE, max_steps=MAX_STEPS)
+    eval_env = HEREnvFixedTarget(U, GATES, NUM_QUBITS, tolerance=TOLERANCE, max_steps=MAX_STEPS)
     # define the callback during training
     eval_callback = EvalCallback(eval_env, best_model_save_path=f"{models_dir}/best_model",
                                 log_path="./eval_logs/results", eval_freq=10000)
