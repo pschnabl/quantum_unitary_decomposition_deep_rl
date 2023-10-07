@@ -71,6 +71,9 @@ def sample_ppo_params(trial: optuna.Trial) -> Dict[str, Any]:
 def optimize_agent(trial):
     """
     Train the model and optimize the hyperparameters using Optuna.
+    The used objective function for the optimization is defined by training the agent for 4*10^5 timesteps,
+    evaluating the policy every 10^4 timesteps and taking the negative value of the average of the rewards obtained
+    by each evaluation.
     """
     model_params = sample_ppo_params(trial)
     env = PaperEnv()
